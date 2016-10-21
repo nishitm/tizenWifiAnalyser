@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" package="@PACKAGE_NAME@" version="@VERSION@" install-location="internal-only">
+	<label>Favorite</label>
+	<author email="hj903.jo@samsung.com" href="www.samsung.com">Hyojung Jo</author>
+	<description>Favorite application</description>
+	<ui-application appid="@PACKAGE_NAME@" exec="@BINDIR@/@PROJECT_NAME@" nodisplay="false" multiple="false" type="capp" taskmanage="true">
+		<label>Favorite</label>
+		<icon>@DESKTOP_ICON@</icon>
+	</ui-application>
+	<privileges>
+		<privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+	</privileges>
+</manifest>
