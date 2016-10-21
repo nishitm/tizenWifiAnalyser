@@ -1347,7 +1347,7 @@ int test_connect_specific_ap(void)
 
 	printf("Scan specific AP request succeeded\n");
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// app_control_h app_control;
+	
 	app_control_create(&app_control);
 	app_control_set_operation(app_control,APP_CONTROL_OPERATION_DEFAULT);
 	app_control_set_app_id(app_control,"org.tizen.favorite");
