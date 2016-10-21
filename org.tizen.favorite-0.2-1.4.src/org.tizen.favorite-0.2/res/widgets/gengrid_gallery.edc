@@ -1,0 +1,432 @@
+/*
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the License);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+group {
+	name, "elm/gengrid/item/style.gallery/default";
+	data.item, "focus_highlight" "on";
+	data.item, "texts" "part.thumb.text";
+	data.item, "contents" "part.thumb.icon part.thumb.play.icon";
+	parts {
+		part {
+			name, "padding.bottom.right";
+			type, SPACER;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				rel1.relative, 1.0 1.0;
+				min, 6 6;
+				align, 1.0 1.0;
+				fixed, 1 1;
+			}
+		}
+
+		part {
+			name, "map";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				perspective {
+					zplane, 0;
+					focal, 1000;
+				}
+				visible, 0;
+			}
+			description {
+				state, "selected" 0.0;
+				inherit, "default" 0.0;
+				perspective.zplane, -100;
+			}
+		}
+
+		part {
+			name, "part.bg";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				rel2 {
+					to, "padding.bottom.right";
+					relative, 0.0 0.0;
+				}
+			}
+		}
+
+		part {
+			name, "part.default.bg";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				rel1.to, "part.bg";
+				rel2.to, "part.bg";
+				color, 119 169 202 255;
+				map {
+					perspective_on, 1;
+					perspective, "map";
+				}
+			}
+			description {
+				state, "focused" 0.0;
+				inherit, "default" 0.0;
+				map.on, 1;
+			}
+		}
+
+		part {
+			name, PART_THUMB_ICON;
+			type, SWALLOW;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				rel1.to, "part.bg";
+				rel2.to, "part.bg";
+				map {
+					perspective_on, 1;
+					perspective, "map";
+				}
+			}
+			description {
+				state, "focused" 0.0;
+				inherit, "default" 0.0;
+				map.on, 1;
+			}
+		}
+
+		part {
+			name, "padding.thumb.play.icon";
+			type, SPACER;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				min, 60 60;
+				rel2.relative, 0.0 0.0;
+				align, 0.0 0.0;
+				fixed, 1 1;
+			}
+		}
+
+		part {
+			name, PART_THUMB_PLAY_ICON;
+			type, SWALLOW;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				min, 80 80;
+				rel1 {
+					to, "padding.thumb.play.icon";
+					relative, 1.0 1.0;
+				}
+				rel2 {
+					to, "padding.thumb.play.icon";
+					relative, 1.0 1.0;
+				}
+				align, 0.0 0.0;
+				fixed, 1 1;
+				map {
+					perspective_on, 1;
+					perspective, "map";
+				}
+			}
+			description {
+				state, "focused" 0.0;
+				inherit, "default" 0.0;
+				map.on, 1;
+			}
+		}
+
+		part {
+			name, "padding.thumb.text";
+			type, SPACER;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				min, 12 12;
+				rel1.to, "padding.bottom.right";
+				rel2 {
+					to, "padding.bottom.right";
+					relative, 0.0 0.0;
+				}
+				align, 1.0 1.0;
+				fixed, 1 1;
+			}
+		}
+
+		part {
+			name, PART_THUMB_TEXT;
+			type, TEXT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				color, 255 255 255 255;
+				min, 74 24;
+				rel1 {
+					to, "padding.thumb.text";
+					relative, 0.0 0.0;
+				}
+				rel2 {
+					to, "padding.thumb.text";
+					relative, 0.0 0.0;
+				}
+				align, 1.0 1.0;
+				fixed, 1 1;
+				text {
+					font, FONT_TIZENSANS_LIGHT;
+					size, 24;
+					align, 1.0 0.5;
+				}
+				map {
+					perspective_on, 1;
+					perspective, "map";
+				}
+			}
+			description {
+				state, "focused" 0.0;
+				inherit, "default" 0.0;
+				map.on, 1;
+			}
+		}
+
+		part {
+			name, "part.focus.up";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				color, COLOR_ITEM_FOCUS;
+				rel1.to, "part.bg";
+				rel2 {
+					to, "part.bg";
+					relative, 1.0 0.0;
+				}
+				min, 0 6;
+				align, 0.5 0.0;
+				fixed, 0 1;
+				visible, 0;
+				map {
+					perspective_on, 1;
+					perspective, "map";
+				}
+			}
+			description {
+				state, "focused" 0.0;
+				inherit, "default" 0.0;
+				map.on, 1;
+				visible, 1;
+			}
+			description {
+				state, "focused_0" 0.0;
+				inherit, "default" 0.0;
+				visible, 1;
+				color, COLOR_ITEM_FOCUS_0;
+			}
+		}
+
+		part {
+			name, "part.focus.left";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				color, COLOR_ITEM_FOCUS;
+				rel1 {
+					to, "part.focus.up";
+					relative, 0.0 1.0;
+				}
+				rel2 {
+					to, "part.bg";
+					relative, 0.0 1.0;
+				}
+				min, 6 0;
+				align, 0.0 0.5;
+				fixed, 1 0;
+				visible, 0;
+				map {
+					perspective_on, 1;
+					perspective, "map";
+				}
+			}
+			description {
+				state, "focused" 0.0;
+				inherit, "default" 0.0;
+				map.on, 1;
+				visible, 1;
+			}
+			description {
+				state, "focused_0" 0.0;
+				inherit, "default" 0.0;
+				visible, 1;
+				color, COLOR_ITEM_FOCUS_0;
+			}
+		}
+
+		part {
+			name, "part.focus.right";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				color,COLOR_ITEM_FOCUS;
+				min, 6 0;
+				rel1 {
+					to, "part.focus.up";
+					relative, 1.0 1.0;
+				}
+				rel2.to, "part.bg";
+				align, 1.0 0.5;
+				fixed, 1 0;
+				visible, 0;
+				map {
+					perspective_on, 1;
+					perspective, "map";
+				}
+			}
+			description {
+				state, "focused" 0.0;
+				inherit, "default" 0.0;
+				map.on, 1;
+				visible, 1;
+			}
+			description {
+				state, "focused_0" 0.0;
+				inherit, "default" 0.0;
+				visible, 1;
+				color, COLOR_ITEM_FOCUS_0;
+			}
+		}
+
+		part {
+			name, "part.focus.down";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				color, COLOR_ITEM_FOCUS;
+				min, 0 6;
+				rel1 {
+					to, "part.focus.left";
+					relative, 1.0 1.0;
+				}
+				rel2 {
+					to, "part.focus.right";
+					relative, 0.0 1.0;
+				}
+				align, 0.5 1.0;
+				fixed, 0 1;
+				visible, 0;
+				map {
+					perspective_on, 1;
+					perspective, "map";
+				}
+			}
+			description {
+				state, "focused" 0.0;
+				inherit, "default" 0.0;
+				map.on, 1;
+				visible, 1;
+			}
+			description {
+				state, "focused_0" 0.0;
+				inherit, "default" 0.0;
+				visible, 1;
+				color, COLOR_ITEM_FOCUS_0;
+			}
+		}
+	}
+
+	programs {
+		program {
+			name, SIG_FOCUSED;
+			signal, "elm,state,focused";
+			source, "elm";
+			action, STATE_SET "focused_0" 0.0;
+			target, "part.focus.up";
+			target, "part.focus.left";
+			target, "part.focus.down";
+			target, "part.focus.right";
+			after, "focus.in.anim";
+		}
+
+		program {
+			name, "focus.in.anim";
+			action, STATE_SET "focused" 0.0;
+			target, "part.default.bg";
+			target, PART_THUMB_ICON;
+			target, PART_THUMB_PLAY_ICON;
+			target, "part.focus.up";
+			target, "part.focus.left";
+			target, "part.focus.down";
+			target, "part.focus.right";
+			target, PART_THUMB_TEXT;
+			transition, TRANSITION_FOCUS;
+			after, "item_focused";
+		}
+
+		program {
+			name, SIG_UNFOCUSED;
+			signal, "elm,state,unfocused";
+			source, "elm";
+			action, STATE_SET "focused_0" 0.0;
+			target, "part.focus.up";
+			target, "part.focus.left";
+			target, "part.focus.down";
+			target, "part.focus.right";
+			transition, TRANSITION_FOCUS;
+			after, "focus.out.anim";
+		}
+
+		program {
+			name, "focus.out.anim";
+			action, STATE_SET "default" 0.0;
+			target, "part.default.bg";
+			target, PART_THUMB_ICON;
+			target, PART_THUMB_PLAY_ICON;
+			target, "part.focus.up";
+			target, "part.focus.left";
+			target, "part.focus.down";
+			target, "part.focus.right";
+			target, PART_THUMB_TEXT;
+		}
+
+		program {
+			name, "item_focused";
+			action, SIGNAL_EMIT SIG_ITEM_FOCUSED SRC_EDC;
+		}
+
+		program {
+			name, SIG_SELECTED;
+			signal, "elm,state,selected";
+			source, "elm";
+			action, STATE_SET "selected" 0.0;
+			target, "map";
+			transition, TRANSITION_CLICK;
+			after, "after_selected";
+		}
+
+		program {
+			name, "after_selected";
+			action, STATE_SET "default" 0.0;
+			target, "map";
+			transition, TRANSITION_CLICK;
+			after, "item_selected";
+		}
+
+		program {
+			name, "item_selected";
+			action, SIGNAL_EMIT SIG_ITEM_SELECTED SRC_EDC;
+		}
+	}
+}

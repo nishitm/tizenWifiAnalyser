@@ -1,0 +1,209 @@
+/*
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the License);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+group {
+	name, "elm/notify/bottom_left/style.toast";
+	parts {
+		part {
+			name, "padding.bottom.left";
+			type, SPACER;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				min, 40 40;
+				rel1.relative, 0.0 1.0;
+				rel2.relative, 0.0 1.0;
+				align, 0.0 1.0;
+				fixed, 1 1;
+			}
+		}
+
+		part {
+			name, "base";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				color, 255 255 255 255;
+				min, 536 70;
+				max, 536 70;
+				rel1 {
+					to, "padding.bottom.left";
+					relative, 1.0 0.0;
+				}
+				rel2 {
+					to, "padding.bottom.left";
+					relative, 1.0 0.0;
+				}
+				align, 0.0 1.0;
+				fixed, 1 1;
+				visible, 0;
+			}
+			description {
+				state, "visible" 0.0;
+				inherit, "default" 0.0;
+				visible, 1;
+			}
+		}
+
+		part {
+			name, "part.inside.line.up";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				color, 194 194 194 255;
+				rel1.to, "base";
+				rel2 {
+					to, "base";
+					relative, 1.0 0.0;
+				}
+				min, 0 1;
+				align, 0.5 0.0;
+				fixed, 0 1;
+				visible, 0;
+			}
+			description {
+				state, "visible" 0.0;
+				inherit, "default" 0.0;
+				visible, 1;
+			}
+		}
+
+		part {
+			name, "part.inside.line.left";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				color, 194 194 194 255;
+				rel1 {
+					to, "part.inside.line.up";
+					relative, 0.0 1.0;
+				}
+				rel2 {
+					to, "base";
+					relative, 0.0 1.0;
+				}
+				min, 1 0;
+				align, 0.0 0.5;
+				fixed, 1 0;
+				visible, 0;
+			}
+			description {
+				state, "visible" 0.0;
+				inherit, "default" 0.0;
+				visible, 1;
+			}
+		}
+
+		part {
+			name, "part.inside.line.right";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				color, 194 194 194 255;
+				rel1 {
+					to, "part.inside.line.up";
+					relative, 1.0 1.0;
+				}
+				rel2.to, "base";
+				min, 1 0;
+				align, 1.0 0.5;
+				fixed, 1 0;
+				visible, 0;
+			}
+			description {
+				state, "visible" 0.0;
+				inherit, "default" 0.0;
+				visible, 1;
+			}
+		}
+
+		part {
+			name, "part.inside.line.down";
+			type, RECT;
+			scale, 1;
+			description {
+				state, "default" 0.0;
+				color, 194 194 194 255;
+				rel1 {
+					to, "part.inside.line.left";
+					relative, 1.0 1.0;
+				}
+				rel2 {
+					to, "part.inside.line.right";
+					relative, 0.0 1.0;
+				}
+				min, 0 1;
+				align, 0.5 1.0;
+				fixed, 0 1;
+				visible, 0;
+			}
+			description {
+				state, "visible" 0.0;
+				inherit, "default" 0.0;
+				visible, 1;
+			}
+		}
+
+		part {
+			name, "elm.swallow.content";
+			type, SWALLOW;
+			description {
+				state, "default" 0.0;
+				rel1.to, "base";
+				rel2.to, "base";
+			}
+		}
+	}
+
+	programs {
+		program {
+			signal, "show";
+			source, "";
+			action, STATE_SET "visible" 0.0;
+			target, "base";
+			target, "part.inside.line.up";
+			target, "part.inside.line.left";
+			target, "part.inside.line.right";
+			target, "part.inside.line.down";
+			transition, DECELERATE 0.5;
+		}
+		program {
+			signal, "hide";
+			source, "";
+			action, STATE_SET "default" 0.0;
+			target, "base";
+			target, "part.inside.line.up";
+			target, "part.inside.line.left";
+			target, "part.inside.line.right";
+			target, "part.inside.line.down";
+		}
+		program {
+			signal, "elm,hide";
+			source, "elm";
+			action, STATE_SET "default" 0.0;
+			target, "base";
+			target, "part.inside.line.up";
+			target, "part.inside.line.left";
+			target, "part.inside.line.right";
+			target, "part.inside.line.down";
+			transition, DECELERATE 0.5;
+		}
+	}
+}
