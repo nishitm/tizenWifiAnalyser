@@ -1747,8 +1747,7 @@ int recieve_file()
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	app_control_create(&app_control);
 	app_control_set_operation(app_control,APP_CONTROL_OPERATION_DEFAULT);
-		// printf("enter the name of the app to call \n");
-	// scanf("%s",&app);
+	
 	
 	app_control_set_app_id(app_control,"org.tizen.favorite");
 	app_control_add_extra_data(app_control,"pre","data");
